@@ -1,34 +1,33 @@
-import React from 'react';
-import { Outlet } from 'react-router-dom';
-import Header from './Header';
-import { useTheme } from '../../context/ThemeContext';
+"use client";
 
-const MainLayout = () => {
+import Header from "./Header";
+import { useTheme } from "../../context/ThemeContext";
+const MainLayout = ({ children }) => {
   const { theme } = useTheme();
 
   const mainDetailStyle = {
-    minHeight: '100vh',
-    display: 'flex',
-    flexDirection: 'column',
-    backgroundColor: theme === 'light' ? '#ffffff' : '#242424',
-    color: theme === 'light' ? '#213547' : 'rgba(255, 255, 255, 0.87)',
-    transition: 'background-color 0.3s ease, color 0.3s ease'
+    minHeight: "100vh",
+    display: "flex",
+    flexDirection: "column",
+    backgroundColor: theme === "light" ? "#ffffff" : "#242424",
+    color: theme === "light" ? "#213547" : "rgba(255, 255, 255, 0.87)",
+    transition: "background-color 0.3s ease, color 0.3s ease",
   };
 
   const contentStyle = {
     flex: 1,
-    padding: '20px',
-    maxWidth: '800px',
-    margin: '0 auto',
-    width: '100%',
-    boxSizing: 'border-box'
+    padding: "20px",
+    maxWidth: "800px",
+    margin: "0 auto",
+    width: "100%",
+    boxSizing: "border-box",
   };
 
   return (
     <div style={mainDetailStyle}>
       <Header />
       <main style={contentStyle}>
-        <Outlet />
+        {children}
       </main>
     </div>
   );

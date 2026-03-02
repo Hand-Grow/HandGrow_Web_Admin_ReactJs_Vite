@@ -1,6 +1,6 @@
-import React from 'react';
-import Button from '../components/common/Button';
+"use client";
 
+import Button from '../components/common/Button';
 const Home = () => {
   return (
     <div>
